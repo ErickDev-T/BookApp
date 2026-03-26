@@ -1,0 +1,86 @@
+<main class="container py-4">
+    <h1 class="mb-3">Listado de Libros</h1>
+
+    {{#if errorMessage}}
+      <div class="alert alert-warning">{{errorMessage}}</div>
+    {{/if}}
+
+    <form action="/" method="GET" class="card p-3 shadow-sm mb-4">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="search" class="form-label">Filtrar por titulo</label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            class="form-control"
+            placeholder="digite el titulo del libro"
+            value="{{search}}"
+          >
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label d-block">Filtrar por categorias (multiple)</label>
+          {{#if categories.length}}
+            <div class="border rounded p-2 category-box">
+              {{#each categories}}
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="{{id}}"
+                    id="category_{{id}}"
+                    name="categoryIds"
+                    {{isChecked ../selectedCategoryIds id}}
+                  >
+                  <label class="form-check-label" for="category_{{id}}">{{name}}</label>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            <div class="alert alert-info mb-0">no hay categorias disponibles.</div>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        <a href="/" class="btn btn-outline-secondary">Limpiar</a>
+        <span class="ms-auto text-secondary align-self-center">Resultados: {{resultsCount}}</span>
+      </div>
+    </form>
+
+    {{#if hasFilters}}
+      <p class="text-secondary">se aplicaron filtros en el listado.</p>
+    {{/if}}
+
+    <div class="row">
+      {{#if books.length}}
+        {{#each books}}
+          <div class="col-md-4 mb-4">
+            <a href="/detalle-libro/{{id}}" class="text-decoration-none text-reset d-block h-100 book-card-link">
+              <div class="card h-100 shadow-sm">
+                <img
+                  src="{{coverImage}}"
+                  class="card-img-top book-cover-home"
+                  alt="{{title}}"
+                >
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <p class="card-text mb-1"><strong>Ano:</strong> {{publishedYear}}</p>
+                  <p class="card-text mb-1"><strong>Categoria:</strong> {{category.name}}</p>
+                  <p class="card-text mb-1"><strong>Autor:</strong> {{author.name}}</p>
+                  <p class="card-text mb-3"><strong>Editorial:</strong> {{publisher.name}}</p>
+                  <span class="btn btn-dark">Ver detalle</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="col-12">
+          <div class="alert alert-info">no se encontraron libros.</div>
+        </div>
+      {{/if}}
+    </div>
+  </main>

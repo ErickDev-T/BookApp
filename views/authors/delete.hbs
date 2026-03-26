@@ -1,0 +1,10 @@
+<main class="container py-4">
+    <h1 class="mb-3">Eliminar Autor</h1>
+    <p class="mb-4">esta seguro que desea eliminar este autor? <strong>{{author.name}}</strong></p>
+
+    <form method="post" action="/authors/delete/{{author.id}}" class="d-flex gap-2">
+      <a href="/authors" class="btn btn-outline-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Aceptar</button>
+    </form>
+  </main>
+

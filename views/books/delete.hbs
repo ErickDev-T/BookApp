@@ -1,0 +1,10 @@
+<main class="container py-4">
+    <h1 class="mb-3">Eliminar Libro</h1>
+    <p class="mb-4">esta seguro que desea eliminar este libro? <strong>{{book.title}}</strong></p>
+
+    <form method="post" action="/books/delete/{{book.id}}" class="d-flex gap-2">
+      <a href="/books" class="btn btn-outline-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Aceptar</button>
+    </form>
+  </main>
+

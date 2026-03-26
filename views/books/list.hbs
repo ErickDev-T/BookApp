@@ -1,0 +1,57 @@
+<main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="mb-0">Mantenimiento de Libros</h1>
+      <a href="/books/create" class="btn btn-primary">Crear Libro</a>
+    </div>
+
+    {{#if successMessage}}
+      <div class="alert alert-success">{{successMessage}}</div>
+    {{/if}}
+
+    {{#if warningMessage}}
+      <div class="alert alert-warning">{{warningMessage}}</div>
+    {{/if}}
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">{{errorMessage}}</div>
+    {{/if}}
+
+    {{#if books.length}}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Portada</th>
+              <th>Titulo</th>
+              <th>Año</th>
+              <th>Categoria</th>
+              <th>Autor</th>
+              <th>Editorial</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each books}}
+              <tr>
+                <td><img src="{{this.coverImage}}" alt="{{this.title}}" class="book-thumb-admin"></td>
+                <td>{{this.title}}</td>
+                <td>{{this.publishedYear}}</td>
+                <td>{{this.category.name}}</td>
+                <td>{{this.author.name}}</td>
+                <td>{{this.publisher.name}}</td>
+                <td class="actions-cell">
+                  <div class="d-flex gap-2 actions-wrap">
+                    <a href="/books/edit/{{this.id}}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="/books/delete/{{this.id}}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                  </div>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{else}}
+      <div class="alert alert-info">aun no hay libros registrados.</div>
+    {{/if}}
+  </main>
+

@@ -1,0 +1,33 @@
+<main class="container py-4">
+    {{#if notFound}}
+      <div class="alert alert-warning">libro no encontrado.</div>
+      <a href="/" class="btn btn-outline-secondary">Volver al home</a>
+    {{else}}
+      <h1 class="mb-4">Detalle del Libro</h1>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="{{book.coverImage}}" alt="{{book.title}}" class="img-fluid rounded shadow-sm book-cover-detail">
+        </div>
+
+        <div class="col-md-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="mb-2"><strong>Titulo:</strong> {{book.title}}</p>
+              <p class="mb-2"><strong>Ano de publicacion:</strong> {{book.publishedYear}}</p>
+              <p class="mb-2"><strong>Categoria:</strong> {{book.category.name}}</p>
+              <p class="mb-2"><strong>Autor:</strong> {{book.author.name}}</p>
+              <p class="mb-2"><strong>Editorial:</strong> {{book.publisher.name}}</p>
+              <p class="mb-2"><strong>Pais editorial:</strong> {{book.publisher.country}}</p>
+              <p class="mb-0"><strong>Telefono editorial:</strong> {{book.publisher.phone}}</p>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a href="/" class="btn btn-outline-secondary">Volver al home</a>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </main>
+

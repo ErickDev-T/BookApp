@@ -1,0 +1,71 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.poster {
+  height: 400px;
+  object-fit: cover;
+}
+
+.navbar-custom {
+  background-color: #000 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar .nav-link {
+  transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar .nav-link.nav-link-active {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+.book-cover-home {
+  height: 360px;
+  object-fit: cover;
+}
+
+.book-cover-detail {
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.category-box {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.book-thumb-admin {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.actions-cell .actions-wrap {
+  align-items: center;
+  white-space: nowrap;
+}
+
+.book-card-link .card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.book-card-link:hover .card {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+

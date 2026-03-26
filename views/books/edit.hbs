@@ -1,0 +1,97 @@
+<main class="container py-4">
+    <h1 class="mb-3">Editar Libro</h1>
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">{{errorMessage}}</div>
+    {{/if}}
+
+    {{#if canSubmit}}
+      <form method="post" action="/books/edit/{{book.id}}" enctype="multipart/form-data" class="card shadow-sm">
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="title" class="form-label">Titulo</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                value="{{formData.title}}"
+                required
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label for="publishedYear" class="form-label">Ano de publicacion</label>
+              <input
+                type="number"
+                id="publishedYear"
+                name="publishedYear"
+                class="form-control"
+                value="{{formData.publishedYear}}"
+                min="1"
+                required
+              >
+            </div>
+
+            <div class="col-md-12">
+              <label for="coverImage" class="form-label">Portada (opcional)</label>
+              <input
+                type="file"
+                id="coverImage"
+                name="coverImage"
+                class="form-control"
+                accept="image/*"
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label for="categoryId" class="form-label">Categoria</label>
+              <select id="categoryId" name="categoryId" class="form-select" required>
+                <option value="">seleccione una categoria</option>
+                {{#each categories}}
+                  <option value="{{this.id}}" {{isSelected this.id ../formData.categoryId}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="authorId" class="form-label">Autor</label>
+              <select id="authorId" name="authorId" class="form-select" required>
+                <option value="">seleccione un autor</option>
+                {{#each authors}}
+                  <option value="{{this.id}}" {{isSelected this.id ../formData.authorId}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="publisherId" class="form-label">Editorial</label>
+              <select id="publisherId" name="publisherId" class="form-select" required>
+                <option value="">seleccione una editorial</option>
+                {{#each publishers}}
+                  <option value="{{this.id}}" {{isSelected this.id ../formData.publisherId}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            <div class="col-md-12">
+              <p class="mb-2 fw-semibold">Portada actual</p>
+              <img src="{{book.coverImage}}" alt="{{book.title}}" class="book-thumb-admin">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer d-flex gap-2">
+          <a href="/books" class="btn btn-outline-secondary">Volver atras</a>
+          <button type="submit" class="btn btn-primary">Guardar libro</button>
+        </div>
+      </form>
+    {{else}}
+      <div class="alert alert-warning">
+        no se puede editar libros porque faltan datos base: {{missingCatalogs}}.
+      </div>
+      <a href="/books" class="btn btn-outline-secondary">Volver al listado</a>
+    {{/if}}
+  </main>
+

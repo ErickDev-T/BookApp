@@ -1,0 +1,10 @@
+<main class="container py-4">
+    <h1 class="mb-3">Eliminar Editorial</h1>
+    <p class="mb-4">esta seguro que desea eliminar esta editorial? <strong>{{publisher.name}}</strong></p>
+
+    <form method="post" action="/publishers/delete/{{publisher.id}}" class="d-flex gap-2">
+      <a href="/publishers" class="btn btn-outline-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Aceptar</button>
+    </form>
+  </main>
+

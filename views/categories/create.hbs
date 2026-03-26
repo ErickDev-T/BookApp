@@ -1,0 +1,40 @@
+<main class="container py-4">
+    <h1 class="mb-3">Crear Categoria</h1>
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">{{errorMessage}}</div>
+    {{/if}}
+
+    <form method="post" action="/categories/create" class="card shadow-sm">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            value="{{formData.name}}"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripcion</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="4"
+            required
+          >{{formData.description}}</textarea>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex gap-2">
+        <a href="/categories" class="btn btn-outline-secondary">Volver atras</a>
+        <button type="submit" class="btn btn-primary">Crear categoria</button>
+      </div>
+    </form>
+  </main>
+

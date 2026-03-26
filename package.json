@@ -1,0 +1,34 @@
+{
+  "name": "bookapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "dev:qa": "cross-env NODE_ENV=qa nodemon app.js",
+    "start": "cross-env NODE_ENV=development node app.js",
+    "start:qa": "cross-env NODE_ENV=qa node app.js",
+    "db:sync": "cross-env NODE_ENV=development node scripts/sync-db.js",
+    "db:sync:qa": "cross-env NODE_ENV=qa node scripts/sync-db.js",
+    "db:seed": "cross-env NODE_ENV=development node scripts/seed-db.js",
+    "db:seed:qa": "cross-env NODE_ENV=qa node scripts/seed-db.js",
+    "mail:test": "cross-env NODE_ENV=development node scripts/test-mail.js",
+    "mail:test:qa": "cross-env NODE_ENV=qa node scripts/test-mail.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "hbs": "^4.2.0",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark navbar-custom">
+  <div class="container py-2">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between w-100 gap-2">
+      <a class="navbar-brand fw-semibold m-0" href="/">BookApp</a>
+
+      <ul class="navbar-nav flex-row flex-wrap gap-2">
+        <li class="nav-item">
+          <a class="nav-link px-3 py-2 rounded-pill border border-secondary-subtle {{isActive currentPath "/"}}" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 py-2 rounded-pill border border-secondary-subtle {{isActive currentPath "/books"}}" href="/books">
+            Libros
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 py-2 rounded-pill border border-secondary-subtle {{isActive currentPath "/categories"}}" href="/categories">
+            Categorias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 py-2 rounded-pill border border-secondary-subtle {{isActive currentPath "/authors"}}" href="/authors">
+            Autores
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 py-2 rounded-pill border border-secondary-subtle {{isActive currentPath "/publishers"}}" href="/publishers">
+            Editoriales
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
